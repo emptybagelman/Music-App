@@ -1,0 +1,10 @@
+:root{
+    --darkbg: #1e1e1e;
+    --bg: #303030;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+

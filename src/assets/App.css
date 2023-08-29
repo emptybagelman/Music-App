@@ -1,0 +1,263 @@
+@import url(https://db.onlinewebfonts.com/c/a7fcb1becc12274d5b761b1d895f8aa9?family=Minecraft+Ten);
+
+:root{
+    --darkbg: #1e1e1e;
+    --bg: #303030;
+    --btn: #008c45;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.2rem;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    letter-spacing: -0.5px;
+}
+
+/* LEFTBAR */
+
+.main{
+    display: flex;
+}
+
+.container{
+    background-color: var(--darkbg);
+    height: 100vh;
+    width: 210px;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#mcJV{
+    display: flex;
+    align-items: center;
+}
+
+#alpha{
+    display: flex;
+    align-items: center;
+}
+
+#grass{
+    height: 60%;
+    padding-right: 10px;
+}
+
+#mcJV>div{
+    width: 150px;
+    line-height: 1rem;
+}
+
+.container>ul{
+    padding: 0;
+}
+
+.container>ul>li{
+    list-style: none;
+    color: white;
+    height: 50px;
+    padding: 12px 25px;
+}
+
+.container>ul>li:hover{
+    background-color: var(--bg);
+    cursor: pointer;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+/* RIGHTSCREEN */
+
+.rightscreen{
+    width: 100%;
+    background-color: cadetblue;
+    padding: 0;
+    margin: 0;
+    overflow-y: scroll;
+}
+
+/* TOPBAR */
+
+.navrow{
+    width: 100%;
+    height: 75px;
+    background-color: var(--darkbg);
+    color: white;
+    position: fixed;
+    z-index: 5;
+}
+
+#navbar>li:hover{
+    background-color: #303030;
+    cursor: pointer;
+}
+
+#navbar{
+    display: flex;
+    align-items: self-end;
+    padding: 0;
+    font-size: 18px;
+    height: 100%;
+    transform: translateY(-20px);
+}
+
+.navrow>h6{
+    position: absolute;
+    left: 15px;
+    top: -3px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#navbar>li{
+    text-decoration: none;
+    list-style: none;
+    padding: 4px 15px 8px 15px;
+    font-size: 1.2rem;
+}
+
+/* MIDDLESPLASH */
+
+#mainsplash{
+    width: 100%;
+    height: 65vh;
+    margin-top: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+#mainsplash>img{
+    width: 100%;
+    position: absolute;
+}
+
+#mainsplash>h1{
+    font-size: 5rem;
+    z-index: 3;
+}
+
+#logo{
+    transform: scale(30%) translateY(-50%);
+}
+
+#mainsplash>.subheader{
+    display: flex;
+    align-items: flex-start;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-family: "Minecraft Ten";
+    letter-spacing: 1px;
+    font-size: 2rem;
+    text-shadow: 4px 4px black;
+    transform: translateY(-180%);
+}
+
+#mainsplash>.subheader>*{
+    padding: 5px;
+}
+
+/* BOTTOMBAR */
+
+#bottomcontainer{
+    width: 100%;
+    background-color: var(--bg);
+    color: white;
+    height: 400px;
+    position: relative;
+}
+
+.releaseSection{
+    display: flex;
+    background-color: var(--darkbg);
+    justify-content: space-between;
+    padding: 2px 25px 2px 10px;
+    position: relative;
+    z-index: 4;
+    box-shadow: #1e1e1e  0 5px 5px 2px ;
+}
+
+.play>button{
+    width: 275px;
+    height: 75px;
+    position: absolute;
+    padding-bottom: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 26%;
+    font-size: 2rem;
+    border-radius: 10px;
+    background-color: var(--btn);
+    color: white;
+    outline: black solid 3px;
+    z-index: 5;
+    box-shadow: #036333 inset -5px -5px, #20eb85 inset 0px 3px;
+    cursor: pointer;
+    font-family: "Minecraft Ten";
+}
+
+.play>button:hover{
+    filter: brightness(1.1);
+}
+
+.songContainer{
+    height: auto;
+    background-color: var(--bg);
+}
+
+.songList{
+    list-style: none;
+    padding: 0;
+}
+
+.songList>li{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+}
+
+#songHeader{
+    box-shadow: 0px 6px 5px 2px var(--darkbg);
+    position: sticky;
+}
+
+#songHeader:hover{
+    background-color: var(--bg);
+}
+
+.songList>li:hover{
+    background-color: #414141;
+}
+
+.songList>li>div{
+    display: flex;
+    width: 600px;
+    justify-content: space-evenly;
+    align-content: right;
+}
+
+/* LIKEBUTTON */
+
+#likeBtn{
+    width: 50px;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    filter: invert() brightness(0.7);
+}
+
+#likeBtn:hover{
+    cursor: pointer;
+    filter: invert() brightness(1.2);
+}
