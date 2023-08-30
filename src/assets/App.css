@@ -216,6 +216,10 @@ a{
     background-color: var(--bg);
 }
 
+.songList>li:nth-child(2){
+    padding-top: 5px;
+}
+
 .songList{
     list-style: none;
     padding: 0;
@@ -245,6 +249,28 @@ a{
     width: 600px;
     justify-content: space-evenly;
     align-content: right;
+}
+
+.idxname{
+    display: flex;
+    align-content: flex-start;
+    width: 300px;
+    flex-wrap: no-wrap;
+    padding: 25px;
+
+}
+
+.idxname>*:nth-child(1){
+    width: 100px;
+    margin: 0;
+    transform: translateX(-60%);
+}
+
+.idxname>*:nth-child(2){
+    width: 200px;
+    margin: 0;
+    transform: translateX(-60%);
+    
 }
 
 /* LIKEBUTTON */
