@@ -3,7 +3,6 @@ import LikeButton from '../LikeButton'
 
 
 const SongItem = ({song,index}) => {
-    console.log(song)
     return (
         <li>
             <div className="idxname">
