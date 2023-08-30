@@ -33,12 +33,15 @@ body{
     flex-direction: column;
 }
 
-#mcJV{
+.user{
     display: flex;
-    align-items: center;
+    justify-content: center;
+    align-self: center;
 }
 
-#alpha{
+#mcJV,
+#alpha,
+#beta{
     display: flex;
     align-items: center;
 }
@@ -51,6 +54,15 @@ body{
 #mcJV>div{
     width: 150px;
     line-height: 1rem;
+    padding-top: 15px;
+    position: relative;
+}
+
+#mcJV a{
+    position: absolute;
+    font-size: 0.7rem;
+    transform: translateX(5px);
+
 }
 
 .container>ul{
@@ -126,6 +138,7 @@ a{
 
 /* MIDDLESPLASH */
 
+
 #mainsplash{
     width: 100%;
     height: 65vh;
@@ -138,7 +151,7 @@ a{
     overflow: hidden;
 }
 
-#mainsplash>img{
+#splash{
     width: 100%;
     position: absolute;
 }
@@ -169,6 +182,37 @@ a{
 }
 
 /* BOTTOMBAR */
+
+#selectAlbum{
+    background-color: var(--darkbg);
+    color: white;
+    border: none;
+    width: 200px;
+    min-height: 50px;
+    font-size: 0.85rem;
+    padding-left: 45px;
+    align-self: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    position: relative;
+}
+
+
+
+#selectAlbum::after{
+    position: absolute;
+}
+
+#selectAlbum:hover,
+#selectAlbum:focus{
+    background-color: var(--bg);
+}
+
+#versionimg{
+    position: absolute;
+    transform: translate(5px,35%);
+}
 
 #bottomcontainer{
     width: 100%;
@@ -214,6 +258,7 @@ a{
 .songContainer{
     height: auto;
     background-color: var(--bg);
+    padding-bottom: 100px;
 }
 
 .songList>li:nth-child(2){

@@ -4,7 +4,7 @@ import LikeButton from '../LikeButton'
 
 const SongItem = ({song,index}) => {
     return (
-        <li>
+        <li key={index}>
             <div className="idxname">
                 <p>{index+1}</p>
                 <p>{song.title}</p>

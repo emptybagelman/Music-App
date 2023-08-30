@@ -1,21 +1,50 @@
-import React,{ useState } from 'react'
+import React,{ useEffect,useState } from 'react'
 import SongItem from "../SongItem"
-import songsJSON from "./songs.json"
+// import Dropdown from "./Dropdown"
+// import songsJSON from "./songs.json"
 
 // import '../assets/leftBar.css'
 
-export default function BottomBar() {
+export default function BottomBar({chooseAlbum}) {
 
     const openSpotifyLink = () => {
         window.open("https://open.spotify.com/album/3Gt7rOjcZQoHCfnKl5AkK7?si=HjA2jT2DQCqL46pFm4VLJg","_blank")
     }
 
+    const [songs,setSongs] = useState([])
+    const [dbWait, setdbWait] = useState(0)
+    const [album,setAlbum] = useState("alpha")
+
+
+    async function getSongs(album="alpha") {
+        try {
+            const response = await fetch(`http://localhost:3000/${album}/songs`)
+            const data = await response.json()
+            setSongs(data)
+            setdbWait(1)
+        } catch (err) {
+            console.log("OH NO ERROR!",err)
+        }
+    }
+    
+    const handleChange = (e) => {
+        setAlbum(e)
+        setdbWait(dbWait+1)
+    }
+
+    useEffect(() => {
+        getSongs(album)
+    },[dbWait])
+
     return (
         <div id='bottomcontainer'>
             <div className="releaseSection">
-                <div className="dropDown">
-                    <p>Latest Release</p>
-                </div>
+                <select name="selectAlbum" id="selectAlbum" value={album} onChange={e => {handleChange(e.target.value),chooseAlbum(e.target.value)}}>
+                    <option value="alpha">Volume Alpha</option>
+                    <option value="beta">Volume Beta</option>
+                </select>
+                <img src="../src/assets/grass_icon.jpg" alt="" id="versionimg"/>
+
                 <div className="play">
                     <button onClick={openSpotifyLink}>PLAY</button>
                 </div>
@@ -24,8 +53,8 @@ export default function BottomBar() {
                 </div>
             </div>
             <div className="songContainer">
-                <ul className="songList">
-                    <li id='songHeader'>
+                <ul className="songList" key="###">
+                    <li id='songHeader' key="header">
                         <div className="idxname">
                             <p>#</p>
                             <p>Title</p>
@@ -36,7 +65,7 @@ export default function BottomBar() {
                             <p>Length</p>
                         </div>
                     </li>
-                    {songsJSON.map((song,index) => {
+                    {songs.map((song,index) => {
                         return <SongItem song={song} index={index}/>
                     })}
                 </ul>
