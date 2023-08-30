@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import LikeButton from './LikeButton'
+import React,{ useState } from 'react'
+import LikeButton from '../LikeButton'
 // import '../assets/leftBar.css'
 
 export default function BottomBar() {

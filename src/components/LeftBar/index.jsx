@@ -6,11 +6,11 @@ export default function LeftBar() {
 
   // const songArray = []
 
-  async function getSongs() {
-    const response = await fetch("http://localhost:3000/songs")
-    const songs = await response.json()
-    songs.forEach(item => songArray.push(item.name))
-  }
+  // async function getSongs() {
+  //   const response = await fetch("http://localhost:3000/songs")
+  //   const songs = await response.json()
+  //   songs.forEach(item => songArray.push(item.name))
+  // }
 
   return (
     <div className="container">

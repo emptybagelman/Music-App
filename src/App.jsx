@@ -1,8 +1,7 @@
 import React,{ useState } from 'react'
-import '../assets/App.css'
+import './assets/App.css'
 
-import LeftBar from './LeftBar.jsx'
-import RightScreen from './RightScreen.jsx'
+import {LeftBar, RightScreen} from "./components"
 
 export default function App() {
     return (
