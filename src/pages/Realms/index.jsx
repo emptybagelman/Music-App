@@ -1,7 +1,29 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
+import { RealmCard } from "../../components"
 import "./style.css"
 
 const Realms = () => {
+
+  const [realms,setRealms] = useState([])
+  const [loading,setLoading] = useState(true)
+  const [error,setError] = useState("")
+
+  async function getRealms(){
+    try {
+      const response = await fetch("http://localhost:3000/realms")
+      const data = await response.json()
+
+      setRealms(data.realms)
+      setLoading(false)
+    } catch (err) {
+      setError(err.message)
+    }
+  }
+
+  useEffect(() => {
+    getRealms()
+  },[])
+
   return (
     <div id="container">
       <div id="main">
@@ -15,15 +37,11 @@ const Realms = () => {
           </div>
         </div>
 
-        <h4>Owned</h4>
+        <h4 id='realmsH4'>Owned</h4>
 
-        <div className="realm-container">
-          <div className="content">
-            <h3>*NAME*</h3>
-            <p>EXPIRED</p>
-          </div>
-          <button>EXPIRED</button>
-        </div>
+        {loading ? <p>Loading...</p> : realms.map((realm,index) => {
+          return <RealmCard key={index} realm={realm}/>
+        })}
 
       </div>
     </div>

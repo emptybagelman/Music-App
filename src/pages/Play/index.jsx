@@ -1,6 +1,7 @@
 import {MainSplash} from "../../components"
 import {BottomBar} from "../../components"
 import React,{ useState } from "react"
+import "./style.css"
 
 export default function Play() {
 

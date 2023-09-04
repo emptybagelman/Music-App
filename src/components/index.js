@@ -1,5 +1,5 @@
-export {default as LeftBar} from "./LeftBar"
 export {default as BottomBar} from "./BottomBar"
 export {default as LikeButton} from "./LikeButton"
 export {default as MainSplash} from "./MainSplash"
 export {default as SongItem} from "./SongItem"
+export {default as RealmCard} from "./RealmCard"

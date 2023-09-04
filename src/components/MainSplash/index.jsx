@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-// import '../assets/leftBar.css'
+import "./style.css"
 
 export default function MainSplash(props){
 

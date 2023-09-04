@@ -1,11 +1,12 @@
 import React,{ useEffect,useState } from 'react'
 import SongItem from "../SongItem"
+import "./style.css"
 // import Dropdown from "./Dropdown"
 // import songsJSON from "./songs.json"
 
 // import '../assets/leftBar.css'
 
-export default function BottomBar({chooseAlbum,expandSongList}) {
+export default function BottomBar({chooseAlbum}) {
 
     // const openSpotifyLink = () => {
     //     window.open("https://open.spotify.com/album/3Gt7rOjcZQoHCfnKl5AkK7?si=HjA2jT2DQCqL46pFm4VLJg","_blank")
@@ -47,7 +48,7 @@ export default function BottomBar({chooseAlbum,expandSongList}) {
 
                 <div className="play">
                     {/* <button onClick={openSpotifyLink}>PLAY</button> */}
-                    <button onClick={expandSongList}>PLAY</button>
+                    <button>PLAY</button>
                 </div>
                 <div className="username">
                     <p>emptybagelman</p>

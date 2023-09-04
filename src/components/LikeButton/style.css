@@ -1,0 +1,12 @@
+#likeBtn{
+    width: 50px;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    filter: invert() brightness(0.7);
+}
+
+#likeBtn:hover{
+    cursor: pointer;
+    filter: invert() brightness(1.2);
+}

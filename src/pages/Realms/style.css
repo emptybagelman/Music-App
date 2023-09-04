@@ -42,7 +42,7 @@
     font-size: 0.9rem;
 }
 
-h4{
+#realmsH4{
     width: 100%;
     font-family: 'Minecraftia', sans-serif;
     font-weight: normal;
@@ -53,10 +53,11 @@ h4{
     height: 80px;
     display: flex;
     align-items: center;
-    border: black 4px solid;
-    box-shadow: inset 4px 4px 0px #5f5f5f, inset -4px -4px 0px #222222;
+    border: rgb(32, 32, 32) 4px solid;
+    box-shadow: inset 4px 4px 0px #5f5f5f, inset -4px -4px 0px #313131;
     background-color: var(--realmbg);
     padding: 5px 15px;
+    margin-bottom: 10px;
 }
 
 .content{
