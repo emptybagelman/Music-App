@@ -1,9 +1,8 @@
-// import NavBar from "../src/components/NavBar"
-import MainSplash from "./MainSplash"
-import BottomBar from "./BottomBar"
+import {MainSplash} from "../../components"
+import {BottomBar} from "../../components"
 import React,{ useState,useEffect } from "react"
 
-export default function RightScreen() {
+export default function Play() {
 
     const [album,setAlbum] = useState("")
 
