@@ -4,6 +4,8 @@
     --darkbg: #1e1e1e;
     --bg: #303030;
     --btn: #008c45;
+    --realmbg: #3a3a3a;
+    --realmbutton: #46288e;
 }
 
 body{
@@ -17,76 +19,6 @@ body{
     letter-spacing: -0.5px;
 }
 
-/* LEFTBAR */
-
-.main{
-    display: flex;
-}
-
-.container{
-    background-color: var(--darkbg);
-    height: 100vh;
-    width: 210px;
-    color: white;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    z-index: 5;
-}
-
-.user{
-    display: flex;
-    justify-content: center;
-    align-self: center;
-}
-
-#mcJV,
-#alpha,
-#beta{
-    display: flex;
-    align-items: center;
-}
-
-#grass{
-    height: 60%;
-    padding-right: 10px;
-}
-
-#mcJV>div{
-    width: 150px;
-    line-height: 1rem;
-    padding-top: 15px;
-    position: relative;
-}
-
-#mcJV a{
-    position: absolute;
-    font-size: 0.7rem;
-    transform: translateX(5px);
-
-}
-
-.container>ul{
-    padding: 0;
-}
-
-.container>ul>li{
-    list-style: none;
-    color: white;
-    height: 50px;
-    padding: 12px 25px;
-}
-
-.container>ul>li:hover{
-    background-color: var(--bg);
-    cursor: pointer;
-}
-
-a{
-    color: white;
-    text-decoration: none;
-}
 
 /* RIGHTSCREEN */
 
@@ -97,46 +29,6 @@ a{
     margin: 0;
     overflow-y: scroll;
 }
-
-/* TOPBAR */
-
-/* .navrow{
-    width: 100%;
-    height: 75px;
-    background-color: var(--darkbg);
-    color: white;
-    position: fixed;
-    z-index: 5;
-}
-
-#navbar>li:hover{
-    background-color: #303030;
-    cursor: pointer;
-}
-
-#navbar{
-    display: flex;
-    align-items: self-end;
-    padding: 0;
-    font-size: 18px;
-    height: 100%;
-    transform: translateY(-20px);
-}
-
-.navrow>h6{
-    position: absolute;
-    left: 15px;
-    top: -3px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-}
-
-#navbar>li{
-    text-decoration: none;
-    list-style: none;
-    padding: 4px 15px 8px 15px;
-    font-size: 1.2rem;
-} */
 
 /* MIDDLESPLASH */
 

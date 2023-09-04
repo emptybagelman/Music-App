@@ -9,10 +9,10 @@ export default function App() {
         <div className='main'>
             <LeftBar />
             <Routes>
-                <Route path="/" element={<NavBar />}>
+                <Route path="/" element={<NavBar />} >
                     <Route index element={<Pages.Play />}/>
-                    <Route path="Realms"/>
-                    <Route path="FAQ" />
+                    <Route path="Realms" element={<Pages.Realms />}/>
+                    <Route path="FAQ" element={<Pages.FAQ />} />
                     <Route path="*" element={<Pages.NotFound />} />
                 </Route>
             </Routes>

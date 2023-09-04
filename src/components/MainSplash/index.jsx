@@ -23,7 +23,7 @@ export default function MainSplash(props){
 
 
     return (
-        <div id='mainsplash'>
+        <div id='mainsplash' style={props.splashStyle}>
             <img src="../src/assets/minecraft1.jpg" alt="" id="splash"/>
             {/* <h1>MINECRAFT</h1> */}
             <img id="logo" src="../src/assets/logo.png" alt="MINECRAFT" />

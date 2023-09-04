@@ -5,11 +5,11 @@ import SongItem from "../SongItem"
 
 // import '../assets/leftBar.css'
 
-export default function BottomBar({chooseAlbum}) {
+export default function BottomBar({chooseAlbum,expandSongList}) {
 
-    const openSpotifyLink = () => {
-        window.open("https://open.spotify.com/album/3Gt7rOjcZQoHCfnKl5AkK7?si=HjA2jT2DQCqL46pFm4VLJg","_blank")
-    }
+    // const openSpotifyLink = () => {
+    //     window.open("https://open.spotify.com/album/3Gt7rOjcZQoHCfnKl5AkK7?si=HjA2jT2DQCqL46pFm4VLJg","_blank")
+    // }
 
     const [songs,setSongs] = useState([])
     const [dbWait, setdbWait] = useState(0)
@@ -46,7 +46,8 @@ export default function BottomBar({chooseAlbum}) {
                 <img src="../src/assets/grass_icon.jpg" alt="" id="versionimg"/>
 
                 <div className="play">
-                    <button onClick={openSpotifyLink}>PLAY</button>
+                    {/* <button onClick={openSpotifyLink}>PLAY</button> */}
+                    <button onClick={expandSongList}>PLAY</button>
                 </div>
                 <div className="username">
                     <p>emptybagelman</p>
@@ -66,7 +67,7 @@ export default function BottomBar({chooseAlbum}) {
                         </div>
                     </li>
                     {songs.map((song,index) => {
-                        return <SongItem song={song} index={index}/>
+                        return <SongItem key={index} song={song} index={index}/>
                     })}
                 </ul>
             </div>

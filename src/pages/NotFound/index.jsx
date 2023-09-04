@@ -7,9 +7,9 @@ const NotFound = () => {
     const location = useLocation()
 
   return (
-    <>
+    <div id='main'>
     <h1>BEANS</h1>
-    </>
+    </div>
   )
 }
 

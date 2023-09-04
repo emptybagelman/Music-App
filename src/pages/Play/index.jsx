@@ -1,21 +1,31 @@
 import {MainSplash} from "../../components"
 import {BottomBar} from "../../components"
-import React,{ useState,useEffect } from "react"
+import React,{ useState } from "react"
 
 export default function Play() {
 
     const [album,setAlbum] = useState("")
+    const [expand,setExpand] = useState(true)
+    const [style,setStyle] = useState({})
 
     const chooseAlbum = (al) => {
         setAlbum(al)
     }
 
+    const expandSongList = () => {
+        expand ? setExpand(false) : setExpand(true)
+        if(expand){
+            setStyle({height:"0"})
+        }else{
+            setStyle({})
+        }
+    }
 
     return (
         <div className='rightscreen'>
-            {/* <NavBar /> */}
+            {/* <MainSplash  splashStyle={style} album={album}/> */}
             <MainSplash album={album}/>
-            <BottomBar chooseAlbum={chooseAlbum}/>
+            <BottomBar expandSongList={expandSongList} chooseAlbum={chooseAlbum}/>
         </div>
     )
 }
