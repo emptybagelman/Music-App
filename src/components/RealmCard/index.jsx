@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{ useState, useEffect } from 'react'
 
 const RealmCard = ({ realm }) => {
 
@@ -6,7 +6,7 @@ const RealmCard = ({ realm }) => {
 
   const activeStyle = () => {
     if(realm.expired == false){
-      const btnStyle = {color:"white",filter:"brightness(1.2)",cursor:"pointer"}
+      const btnStyle = {color:"white",filter:"brightness(1.5)",cursor:"pointer"}
       setStyle(btnStyle)
     }else{
       setStyle({})
