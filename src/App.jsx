@@ -11,8 +11,8 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<NavBar />} >
                     <Route index element={<Pages.Play />}/>
+                    <Route path="Installations" element={<Pages.Installations />} />
                     <Route path="Realms" element={<Pages.Realms />}/>
-                    <Route path="FAQ" element={<Pages.FAQ />} />
                     <Route path="*" element={<Pages.NotFound />} />
                 </Route>
             </Routes>

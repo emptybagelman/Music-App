@@ -17,8 +17,8 @@ const NavBar = () => {
                 <h6>MINECRAFT FOR WINDOWS</h6>
                 <ul id='navbar'>
                     <li><NavLink to="/" style={navA}>Play</NavLink></li>
+                    <li><NavLink to="/Installations" style={navA}>Installations</NavLink></li>
                     <li><NavLink to="/Realms" style={navA}>Realms</NavLink></li>
-                    <li><NavLink to="/FAQ" style={navA}>FAQ</NavLink></li>
                 </ul>
             </nav>
             <Outlet />
