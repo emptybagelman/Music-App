@@ -4,8 +4,10 @@
     --darkbg: #1e1e1e;
     --bg: #303030;
     --btn: #008c45;
+    --brightgreen: #11e261;
     --realmbg: #3a3a3a;
     --realmbutton: #46288e;
+    --divider: rgb(102, 102, 102);
 }
 
 body{

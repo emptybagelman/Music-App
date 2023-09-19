@@ -14,7 +14,7 @@ const NavBar = () => {
     return (
         <>
             <nav className="navrow">
-                <h6>MINECRAFT FOR WINDOWS</h6>
+                <h6>MINECRAFT: JAVA EDITION</h6>
                 <ul id='navbar'>
                     <li><NavLink to="/" style={navA}>Play</NavLink></li>
                     <li><NavLink to="/Installations" style={navA}>Installations</NavLink></li>
