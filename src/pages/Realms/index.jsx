@@ -10,7 +10,7 @@ const Realms = () => {
 
   async function getRealms(){
     try {
-      const response = await fetch("http://localhost:3000/realms")
+      const response = await fetch("http://localhost:5000/realms")
       const data = await response.json()
 
       setRealms(data.realms)

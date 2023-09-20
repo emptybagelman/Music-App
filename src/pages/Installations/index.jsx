@@ -29,7 +29,7 @@ const Installations = () => {
 
   return (
     <div id="inst-main">
-      <div>
+      <div id='main-content'>
         <form id='topform'>
           <div id="search-input">
             <label htmlFor="search">SEARCH</label>
@@ -54,9 +54,6 @@ const Installations = () => {
             </div>
           </div>
         </form>
-      </div>
-
-      <div id="btn-row">
         <button id="new-installation">New installation</button>
       </div>
     </div>
