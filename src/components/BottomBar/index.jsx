@@ -14,14 +14,15 @@ export default function BottomBar({chooseAlbum}) {
 
     const [songs,setSongs] = useState([])
     const [dbWait, setdbWait] = useState(0)
-    const [album,setAlbum] = useState("alpha")
+    const [album,setAlbum] = useState("1")
 
 
-    async function getSongs(album="alpha") {
+    async function getSongs(album="1") {
         try {
-            const response = await fetch(`http://localhost:3000/${album}/songs`)
+            const response = await fetch(`http://localhost:5000/albums/${album}`)
             const data = await response.json()
-            setSongs(data)
+            const read_data = JSON.parse(data.data.songs)
+            setSongs(read_data)
             setdbWait(1)
         } catch (err) {
             console.log("OH NO ERROR!",err)
@@ -41,8 +42,8 @@ export default function BottomBar({chooseAlbum}) {
         <div id='bottomcontainer'>
             <div className="releaseSection">
                 <select name="selectAlbum" id="selectAlbum" value={album} onChange={e => {handleChange(e.target.value),chooseAlbum(e.target.value)}}>
-                    <option value="alpha">Volume Alpha</option>
-                    <option value="beta">Volume Beta</option>
+                    <option value="1">Volume Alpha</option>
+                    <option value="2">Volume Beta</option>
                 </select>
                 <img src="../src/assets/grass_icon.jpg" alt="" id="versionimg"/>
 

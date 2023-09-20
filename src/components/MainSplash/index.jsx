@@ -3,7 +3,7 @@ import "./style.css"
 
 export default function MainSplash(props){
 
-    const [album,setAlbum] = useState("alpha")
+    const [album,setAlbum] = useState("Volume Alpha")
     const [dbWait, setdbWait] = useState(0)
     const [imgStyle,setImgStyle] = useState(false)
     const [dimensions,setDimensions] = useState({
@@ -15,11 +15,12 @@ export default function MainSplash(props){
 
     const ratio = 0.5625
 
-    async function getAlbum(album="alpha") {
+    async function getAlbum(album="1") {
         try {
-            const response = await fetch(`http://localhost:3000/${album}`)
+            const response = await fetch(`http://localhost:5000/albums/${album}`)
             const data = await response.json()
-            setAlbum(data.album)
+            const read_data = data.data.album_name
+            setAlbum(read_data)
             setdbWait(1)
         } catch (err) {
             console.log("OH NO ERROR!",err)
@@ -54,7 +55,7 @@ export default function MainSplash(props){
     })
 
     useEffect(() => {
-        getAlbum(props.album ? props.album : "alpha")
+        getAlbum(props.album ? props.album : "1")
     },[props.album])
 
     return (
