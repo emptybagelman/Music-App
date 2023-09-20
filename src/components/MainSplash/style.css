@@ -21,19 +21,21 @@
 }
 
 #logo{
-    transform: scale(30%) translateY(-50%);
+    transform: scale(20%);
+    position: absolute;
+    bottom: -320px;
 }
 
 #mainsplash>.subheader{
     display: flex;
     align-items: flex-start;
     position: absolute;
-    color: rgb(255, 255, 255);
+    color: rgb(169, 167, 173);
     font-family: "Minecraft Ten";
     letter-spacing: 1px;
     font-size: 2rem;
-    text-shadow: 4px 4px black;
-    transform: translateY(-180%);
+    text-shadow: 2px 4px black;
+    transform: translateY(-220%);
 }
 
 #mainsplash>.subheader>*{
