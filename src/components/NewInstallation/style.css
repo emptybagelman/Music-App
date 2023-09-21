@@ -1,0 +1,87 @@
+#inst-overlay{
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background-color: var(--bg);
+    z-index: 15;
+}
+
+#top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 60px;
+    border-bottom: 1px solid rgba(102, 102, 102,20%);
+}
+
+#top>button{
+    position: absolute;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#top>button:hover{
+    background-color: var(--divider);
+}
+
+#top>button::before,
+#top>button::after{
+    content: "";
+    width: 25px;
+    height: 2px;
+    background-color: whitesmoke;
+    position: absolute;
+    left: 20%;
+    top: 50%;
+}
+
+#top>button::before{
+    transform: rotateZ(-45deg);
+}
+
+#top>button::after{
+    transform: rotateZ(45deg);
+}
+
+#top>h1{
+    font-size: 1.2rem;
+    letter-spacing: 0.4px;
+}
+
+#lower-main{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#create-new{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 30%;
+    background-color: red;
+}
+
+#create-new>img{
+    width: 12%;
+}
+
+
+
+.fadein{
+    animation: fadein 0.3s ease-in-out forwards;
+}
+
+@keyframes fadein{
+    0%{filter: opacity(0);}
+    100%{filter: opacity(1);
+    top:0;}
+}

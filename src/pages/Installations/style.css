@@ -157,6 +157,12 @@
     border: 1px solid var(--divider);
     padding: 8px 20px;
     margin-top: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#new-installation:hover{
+    background-color: var(--hover);
 }
 
 #new-installation::before{
@@ -167,4 +173,8 @@
     left: -1000%;
     top: -20px;
     background-color: var(--divider);
+}
+
+#new-installation:focus{
+    border: 1px solid whitesmoke;
 }
