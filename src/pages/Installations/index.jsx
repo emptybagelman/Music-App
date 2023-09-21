@@ -1,4 +1,5 @@
 import React,{ useState, useEffect, useRef } from 'react'
+import { InstallationForm } from "../../components"
 import "./style.css"
 
 const Installations = () => {
@@ -30,7 +31,8 @@ const Installations = () => {
   return (
     <div id="inst-main">
       <div id='main-content'>
-        <form id='topform'>
+        <InstallationForm inputText={inputText} handleInput={handleInput} sortChoice={sortChoice} handleSortChange={handleSortChange} toggleArr={toggleArr} updateToggle={updateToggle}/>
+        {/* <form id='topform'>
           <div id="search-input">
             <label htmlFor="search">SEARCH</label>
             <input name="search" type="text" placeholder='Installation name' id='searchinput' value={inputText} onChange={handleInput}/>
@@ -53,7 +55,7 @@ const Installations = () => {
               <label htmlFor="modded">Modded</label>
             </div>
           </div>
-        </form>
+        </form> */}
         <button id="new-installation">New installation</button>
       </div>
     </div>
