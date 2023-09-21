@@ -38,8 +38,13 @@ const NewInstallation = () => {
   }
 
   function handlePreset(e){
-    const dim = e.target.value.split("x")
-    setResolution([dim[0],dim[1]])
+    if(e.target.value == "autoxauto"){
+      setResolution(["",""])
+    }else{
+      const dim = e.target.value.split("x")
+      setResolution([dim[0],dim[1]])
+    }
+
   }
 
   function handleResolution(e, idx){
@@ -52,6 +57,11 @@ const NewInstallation = () => {
 
   function handleJVM(e){
     setJvmArg(e.target.value)
+  }
+
+  function closeOverlay(){
+    setOverlayDisplay({display:"none"})
+    setNewInstToggle(false)
   }
 
   useEffect(() => {
@@ -77,7 +87,7 @@ const NewInstallation = () => {
 
             <div id="labels">
               <label htmlFor="version">VERSION</label>  
-              <section>SERVER</section>
+              <label>SERVER</label>
             </div>
             <select name="version" id="version-select" value={version} onChange={handleVersionChange}>
               <option value="release 1.20.1">release 1.20.1</option>
@@ -103,6 +113,7 @@ const NewInstallation = () => {
                 <option value="1024x768">1024x768</option>
               </select>
               <input type="text" id='res-width' placeholder='<auto>' value={resolution[0]} onChange={(e) => handleResolution(e,0)}  autoComplete='off'/>
+              <p>X</p>
               <input type="text" id='res-height' placeholder='<auto>' value={resolution[1]} onChange={(e) => handleResolution(e,1)}  autoComplete='off'/>
             </div>
 
@@ -115,7 +126,7 @@ const NewInstallation = () => {
             <label htmlFor="javaexec">JAVA EXECUTABLE</label>
             <div id="exec-flex">
               <input type="text" name='javaexec' id='javaexec' value={javaExec} placeholder='<Use bundled Java runtime>' onChange={handleJavaExecInput} autoComplete='off'/>
-              {javaExec.length > 0 ? <button onClick={() => setJavaExec("")}>X</button> : ""}
+              {javaExec.length > 0 ? <button id={"execbtn"} onClick={() => setJavaExec("")}>X</button> : ""}
 
               <button className="browse">BROWSE</button>
             </div>
@@ -125,7 +136,7 @@ const NewInstallation = () => {
             <label htmlFor="jvm">JVM ARGUMENTS</label>
             <div id="jvm-flex">
               <input type="text" name='jvm' id='jvm' value={jvmArg} onChange={handleJVM} autoComplete='off'/>
-              {jvmArg.length > 0 && jvmArg !== defaultJVMArg ? <button onClick={() => setJvmArg(defaultJVMArg)}>RESET</button> : "" }
+              {jvmArg.length > 0 && jvmArg !== defaultJVMArg ? <button id={"jvmbtn"} onClick={() => setJvmArg(defaultJVMArg)}>RESET</button> : "" }
             </div>
 
 
@@ -134,8 +145,8 @@ const NewInstallation = () => {
         </div>
 
         <footer>
-          <button id="cancel" onClick={() => setOverlayDisplay({display:"none"})} >Cancel</button>
-          <button id="create">Create</button>
+          <button className='fbtn btn' id="cancel" onClick={closeOverlay} >Cancel</button>
+          <button className='fbtn btn' id="create">Create</button>
         </footer>
 
     </div>

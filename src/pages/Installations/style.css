@@ -44,22 +44,9 @@
     margin-right: 60px;
 }
 
-#search-input>input{
-    position: relative;
+#search-input>input[type="text"]{
     width: 290px;
     padding: 7px 7px 7px 30px;
-    font-size: 0.75rem;
-    border: none;
-    outline: solid var(--brightgreen) 2px;
-    border-radius: 2px;
-    background-color: var(--darkbg);
-    color: whitesmoke;
-    margin-top: 5px;
-}
-
-#search-input>input:focus{
-    border: none;
-    outline: solid white 3px;
 }
 
 #search-input::before,
