@@ -23,7 +23,8 @@
 #logo{
     transform: scale(20%);
     position: absolute;
-    bottom: -320px;
+    margin-top: 75px;
+    bottom: -200px;
 }
 
 #mainsplash>.subheader{

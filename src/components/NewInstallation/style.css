@@ -241,7 +241,7 @@
     border: 1px solid whitesmoke;
 }
 
-#inst-overlay>footer{
+#btns{
     position: absolute;
     top: calc(100vh - 80px);
     left: 0vw;
@@ -252,7 +252,7 @@
     justify-content: flex-end;
 }
 
-#inst-overlay>footer::before{
+#btns::before{
     content: "";
     background-color: rgb(65, 65, 65);
     width: 100vw;
@@ -262,18 +262,18 @@
     z-index: 16;
 }
 
-#inst-overlay>footer>button:nth-child(2){
+#btns>button:nth-child(2){
     background-color: var(--btn);
     border: var(--btn) solid 1px;
     margin-right: 25px;
 }
 
-#inst-overlay>footer>button:nth-child(2):hover{
+#btns>button:nth-child(2):hover{
     background-color: var(--brightgreen);
     border: var(--brightgreen) solid 1px;
 }
 
-#inst-overlay>footer>button:nth-child(2):focus{
+#btns>button:nth-child(2):focus{
     border: 1px solid whitesmoke;
 }
 

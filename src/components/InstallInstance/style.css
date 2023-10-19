@@ -1,0 +1,102 @@
+.instances{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    border-top: 1px solid var(--hover);
+    padding: 5px 5px 5px 5px;
+}
+.instances:nth-child(1){
+    margin-top: 20px;
+}
+
+.instances:hover{
+    background-color: var(--hover);
+    cursor: pointer;
+}
+
+.instances:hover .rightside{
+    display: flex;
+}
+
+.leftside{
+    display: flex;
+    align-items: center;
+}
+
+.leftside>img{
+    height: 60%;
+    padding-right: 15px;
+}
+
+.titles{
+    margin: 0;
+    padding: 0;
+}
+
+.titles>h3{
+    transform: translateY(10px);
+}
+
+.titles>p{
+    transform: translateY(-10px);
+    font-size: 0.9rem;
+    letter-spacing: 0.2px;
+}
+
+.rightside{
+    display: none;
+    align-items: center;
+    position: relative;
+}
+
+.rightside>*{
+    margin-left: 10px;
+}
+
+.rightside>button{
+    font-family: Arial, Helvetica, sans-serif;
+    height: 40px;
+    width: 80px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--btn);
+    border: none;
+    cursor: pointer;
+}
+
+.rightside>button:hover{
+    background-color: var(--brightgreen);
+}
+
+.rightside>p{
+    height: 40px;
+    width: 40px;
+    border: solid 1px var(--divider);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightside>p:hover{
+    background-color: var(--divider);
+}
+
+.dropdown-edit{
+    z-index: 5;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: var(--darkbg);
+    font-size: 0.75rem;
+    padding: 10px 0px;
+    letter-spacing: 0.2px;
+}
+
+.dropdown-edit>*{
+    padding: 3px 15px;
+}
+
+.dropdown-edit>*:hover{
+    background-color: var(--btn);
+}

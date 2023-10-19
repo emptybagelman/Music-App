@@ -1,10 +1,11 @@
 import React,{ useState,useEffect,useRef } from 'react'
 import { useInst } from "../../contexts"
 import "./style.css"
+import axios from "axios"
 
 const NewInstallation = () => {
 
-  const { overlayDisplay, setOverlayDisplay, setNewInstToggle, newInstToggle } = useInst()
+  const { overlayDisplay, setOverlayDisplay, setNewInstToggle, newInstToggle, overlayInfoFill } = useInst()
 
   const defaultJVMArg = "-Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M"
 
@@ -12,7 +13,7 @@ const NewInstallation = () => {
   const [instName, setInstName] = useState("")
   const [version,setVersion] = useState("Latest release (1.20.1)")
   const [directory,setDirectory] = useState("")
-  const [resolution,setResolution] = useState(["",""])
+  const [resolution,setResolution] = useState("autoxauto")
 
   //options toggle
   const [optionsActive, setOptionsActive] = useState(false)
@@ -38,17 +39,14 @@ const NewInstallation = () => {
   }
 
   function handlePreset(e){
-    if(e.target.value == "autoxauto"){
-      setResolution(["",""])
-    }else{
+    console.log(e.target.value);
       const dim = e.target.value.split("x")
       setResolution([dim[0],dim[1]])
-    }
-
   }
 
   function handleResolution(e, idx){
-    idx == 0 ? setResolution([resolution[e.target.value],resolution[1]]) : setResolution([resolution[0],resolution[resolution[e.target.value]]])
+    console.log(resolution);
+    idx == 0 ? setResolution([e.target.value,resolution.split("x")[1]]) : setResolution([resolution.split("x")[0],e.target.value])
   }
 
   function handleJavaExecInput(e){
@@ -64,8 +62,65 @@ const NewInstallation = () => {
     setNewInstToggle(false)
   }
 
+  async function sendInstallationForm(e){
+    e.preventDefault()
+    const formData = new FormData()
+
+    formData.append("name",instName)
+    formData.append("version",version)
+
+    if(!directory){
+      formData.append("directory","C:/Users")
+    }else{
+      formData.append("directory",directory)
+    }
+    formData.append("resolution",resolution[0]+"x"+resolution[1])
+
+    if(javaExec){
+      formData.append("javaexec",javaExec)
+    }
+    if(jvmArg){
+      formData.append("jvm",jvmArg)
+    }
+
+    try {
+      const newInst = await axios.post("http://localhost:5000/installations",formData)
+      .then(resp => {
+        console.log("response: ",resp.data);
+      })
+      .catch(err => {
+        console.error("Error: ",err)
+      })
+
+    } catch (error) {
+      console.log("line85 error",error);
+    }
+  }
+
+  function fillFields(){
+    setInstName(overlayInfoFill.name)
+    setVersion(overlayInfoFill.version)
+    setDirectory(overlayInfoFill.directory)
+    setResolution(overlayInfoFill.resolution)
+    setJavaExec(overlayInfoFill.javaexec)
+    setJvmArg(overlayInfoFill.jvm)
+  }
+
+  function emptyFields(){
+    setInstName("")
+    setVersion("Latest release (1.20.1)")
+    setDirectory("")
+    setResolution("autoxauto")
+    setJavaExec("")
+    setJvmArg("")
+  }
+
   useEffect(() => {
     handleAnimation()
+    if(overlayDisplay){
+      fillFields()
+    }
+
   },[overlayDisplay])
 
   return (
@@ -75,7 +130,7 @@ const NewInstallation = () => {
             <button onClick={() => setNewInstToggle(!newInstToggle)}></button>
         </div>
         <div id="lower-main">
-          <form id='create-new'>
+          <form id='create-new' onSubmit={(e) => {sendInstallationForm(e);setOverlayDisplay({display:"none"})}}>
             <img src="./src/assets/jukebox.png" alt="" />
 
             {/* NAME */}
@@ -107,14 +162,14 @@ const NewInstallation = () => {
 
             <label htmlFor="resolution">RESOLUTION</label>
             <div id="resolution-flex">
-              <select name="presets" id="presets" value={`${resolution[0]}x${resolution[1]}`} onChange={handlePreset}>
+              <select name="presets" id="presets" value={resolution} onChange={handlePreset}>
                 <option value="autoxauto">auto</option>
                 <option value="800x600">800x600</option>
                 <option value="1024x768">1024x768</option>
               </select>
-              <input type="text" id='res-width' placeholder='<auto>' value={resolution[0]} onChange={(e) => handleResolution(e,0)}  autoComplete='off'/>
+              <input type="text" id='res-width' placeholder='<auto>' value={resolution.split("x")[0]} onChange={(e) => handleResolution(e,0)}  autoComplete='off'/>
               <p>X</p>
-              <input type="text" id='res-height' placeholder='<auto>' value={resolution[1]} onChange={(e) => handleResolution(e,1)}  autoComplete='off'/>
+              <input type="text" id='res-height' placeholder='<auto>' value={resolution.split("x")[1]} onChange={(e) => handleResolution(e,1)}  autoComplete='off'/>
             </div>
 
             {/* MORE OPTIONS */}
@@ -123,31 +178,44 @@ const NewInstallation = () => {
 
             {/* JAVA EXEC */}
 
-            <label htmlFor="javaexec">JAVA EXECUTABLE</label>
-            <div id="exec-flex">
-              <input type="text" name='javaexec' id='javaexec' value={javaExec} placeholder='<Use bundled Java runtime>' onChange={handleJavaExecInput} autoComplete='off'/>
-              {javaExec.length > 0 ? <button id={"execbtn"} onClick={() => setJavaExec("")}>X</button> : ""}
-
-              <button className="browse">BROWSE</button>
-            </div>
+            {
+              optionsActive
+              ?
+              <>
+              <label htmlFor="javaexec">JAVA EXECUTABLE</label>
+              <div id="exec-flex">
+                <input type="text" name='javaexec' id='javaexec' value={javaExec} placeholder='<Use bundled Java runtime>' onChange={handleJavaExecInput} autoComplete='off'/>
+                {javaExec.length > 0 ? <button id={"execbtn"} onClick={() => setJavaExec("")}>X</button> : ""}
+  
+                <button className="browse">BROWSE</button>
+              </div>
+              </>
+              : <></>
+            }
 
             {/* JVM ARGUMENTS */}
 
-            <label htmlFor="jvm">JVM ARGUMENTS</label>
-            <div id="jvm-flex">
-              <input type="text" name='jvm' id='jvm' value={jvmArg} onChange={handleJVM} autoComplete='off'/>
-              {jvmArg.length > 0 && jvmArg !== defaultJVMArg ? <button id={"jvmbtn"} onClick={() => setJvmArg(defaultJVMArg)}>RESET</button> : "" }
-            </div>
+            {
+              optionsActive
+              ? <>
+                  <label htmlFor="jvm">JVM ARGUMENTS</label>
+                  <div id="jvm-flex">
+                    <input type="text" name='jvm' id='jvm' value={jvmArg} onChange={handleJVM} autoComplete='off'/>
+                    {jvmArg.length > 0 && jvmArg !== defaultJVMArg ? <button id={"jvmbtn"} onClick={() => setJvmArg(defaultJVMArg)}>RESET</button> : "" }
+                  </div>
+                </>
+              : <></>
+            }
 
+            <div id="btns">
+              <button className='fbtn btn' id="cancel" onClick={closeOverlay} >Cancel</button>
+              <button type='submit' className='fbtn btn' id="create">Create</button>
+            </div>
 
           </form>
 
         </div>
 
-        <footer>
-          <button className='fbtn btn' id="cancel" onClick={closeOverlay} >Cancel</button>
-          <button className='fbtn btn' id="create">Create</button>
-        </footer>
 
     </div>
   )

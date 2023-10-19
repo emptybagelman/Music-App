@@ -165,3 +165,7 @@
 #new-installation:focus{
     border: 1px solid whitesmoke;
 }
+
+#installed{
+    width: 100%;
+}
