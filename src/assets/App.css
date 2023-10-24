@@ -1,0 +1,40 @@
+@import url(https://db.onlinewebfonts.com/c/a7fcb1becc12274d5b761b1d895f8aa9?family=Minecraft+Ten);
+
+:root{
+    --darkbg: #1e1e1e;
+    --bg: #303030;
+    --btn: #008c45;
+    --brightgreen: #11e261;
+    --realmbg: #3a3a3a;
+    --realmbutton: #46288e;
+    --divider: rgb(102, 102, 102);
+    --hover: rgb(70, 70, 70);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.2rem;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    letter-spacing: -0.5px;
+}
+
+input[type="text"]{
+    position: relative;
+    padding: 7px 7px 7px 7px;
+    font-size: 0.75rem;
+    border: none;
+    outline: solid var(--brightgreen) 2px;
+    border-radius: 2px;
+    background-color: var(--darkbg);
+    color: whitesmoke;
+    margin-top: 5px;
+}
+
+input[type="text"]:focus{
+    border: none;
+    outline: solid white 3px;
+}

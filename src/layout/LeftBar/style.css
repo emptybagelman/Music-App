@@ -1,0 +1,68 @@
+.main{
+    display: flex;
+}
+
+.container{
+    background-color: var(--darkbg);
+    height: 100vh;
+    width: 210px;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 7;
+}
+
+.user{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+#mcJV,
+#alpha,
+#beta{
+    display: flex;
+    align-items: center;
+}
+
+#grass{
+    height: 60%;
+    padding-right: 10px;
+}
+
+#mcJV>div{
+    width: 150px;
+    line-height: 1rem;
+    padding-top: 15px;
+    position: relative;
+}
+
+#mcJV a{
+    position: absolute;
+    font-size: 0.7rem;
+    transform: translateX(5px);
+
+}
+
+.container>ul{
+    padding: 0;
+}
+
+.container>ul>li{
+    list-style: none;
+    color: white;
+    height: 50px;
+    padding: 12px 25px;
+}
+
+.container>ul>li:hover{
+    background-color: var(--bg);
+    cursor: pointer;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}

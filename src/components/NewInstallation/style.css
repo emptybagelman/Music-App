@@ -1,0 +1,289 @@
+#inst-overlay{
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background-color: var(--bg);
+    z-index: 15;
+}
+
+#top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 60px;
+    border-bottom: 1px solid rgba(102, 102, 102,20%);
+}
+
+#top>button{
+    position: absolute;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#top>button:hover{
+    background-color: var(--divider);
+}
+
+#top>button::before,
+#top>button::after{
+    content: "";
+    width: 25px;
+    height: 2px;
+    background-color: whitesmoke;
+    position: absolute;
+    left: 20%;
+    top: 50%;
+}
+
+#top>button::before{
+    transform: rotateZ(-45deg);
+}
+
+#top>button::after{
+    transform: rotateZ(45deg);
+}
+
+#top>h1{
+    font-size: 1.2rem;
+    letter-spacing: 0.4px;
+}
+
+#lower-main{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+
+}
+
+#create-new{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 25%;
+}
+
+#create-new>img{
+    width: 12%;
+    align-self: center;
+}
+
+#version-select{
+    position: relative;
+    padding: 7px 7px 7px 7px;
+    font-size: 0.75rem;
+    border: none;
+    outline: solid var(--brightgreen) 2px;
+    border-radius: 2px;
+    background-color: var(--darkbg);
+    color: whitesmoke;
+    margin-top: 5px;
+}
+
+#version-select:focus{
+    border: none;
+    outline: solid white 3px;
+}
+
+#inst-overlay label{
+    margin-top: 25px;
+    font-size: 0.8rem;
+    letter-spacing: -0.4px;
+    font-weight: bold;
+}
+
+#labels{
+    display: flex;
+    justify-content: space-between;
+}
+
+#directory-flex{
+    width: 100%;
+    display: flex;
+}
+
+#directory-flex>input{
+    flex-grow: 1;
+    z-index: 17;
+}
+
+.browse{
+    background-color: var(--darkbg);
+    color: whitesmoke;
+    border: none;
+    outline: none;
+    padding: 7px 11px;
+    cursor: pointer;
+}
+
+.browse:hover{
+    filter: brightness(1.2);
+}
+
+#directory-flex>button{
+    transform: translateY(2px);
+}
+
+#resolution-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#res-width,
+#res-height{
+    width: 120px;
+}
+
+#resolution-flex>p{
+    color: var(--divider);
+    transform: translateY(3px);
+}
+
+#presets{
+    background-color: transparent;
+    color: whitesmoke;
+    width: 100px;
+    padding: 7px 7px;
+    border: none;
+    border-radius: 2px;
+}
+
+#presets>*{
+    background-color: var(--hover);
+}
+
+#presets:hover{
+    cursor: pointer;
+    background-color: var(--hover);
+}
+
+#more-options{
+    font-size: 0.8rem;
+    align-self: flex-end;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 2px 4px;
+
+}
+
+#more-options:hover{
+    background-color: var(--hover);
+}
+
+#exec-flex,
+#jvm-flex{
+    display: flex;
+}
+
+#javaexec,
+#jvm{
+    flex-grow: 1;
+    z-index: 16;
+}
+
+#exec-flex>button,
+#jvmbtn{
+    transform: translateY(3px);
+}
+
+#exec-flex>button:hover{
+    background-color: var(--hover);
+}
+
+#execbtn,
+#jvmbtn{
+    background-color: var(--darkbg);
+    color: white;
+    border: none;
+    width: 35px;
+    cursor: pointer;
+}
+
+#jvmbtn{
+    width: auto;
+}
+
+.btn{
+    position: relative;
+    background: transparent;
+    color: whitesmoke;
+    border: 1px solid var(--hover);
+    padding: 8px 20px;
+    margin-top: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.btn:hover{
+    background-color: var(--hover);
+}
+
+.btn::before{
+    content: "";
+    height: 1px;
+    width: 500vw;
+    position: absolute;
+    left: -1000%;
+    top: -20px;
+    background-color: var(--divider);
+}
+
+.btn:focus{
+    border: 1px solid whitesmoke;
+}
+
+#btns{
+    position: absolute;
+    top: calc(100vh - 80px);
+    left: 0vw;
+    bottom: -300px;
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#btns::before{
+    content: "";
+    background-color: rgb(65, 65, 65);
+    width: 100vw;
+    height: 1px;
+    position: absolute;
+    top: 6px;
+    z-index: 16;
+}
+
+#btns>button:nth-child(2){
+    background-color: var(--btn);
+    border: var(--btn) solid 1px;
+    margin-right: 25px;
+}
+
+#btns>button:nth-child(2):hover{
+    background-color: var(--brightgreen);
+    border: var(--brightgreen) solid 1px;
+}
+
+#btns>button:nth-child(2):focus{
+    border: 1px solid whitesmoke;
+}
+
+
+.fadein{
+    animation: fadein 0.3s ease-in-out forwards;
+}
+
+@keyframes fadein{
+    0%{filter: opacity(0);}
+    100%{filter: opacity(1);
+    top:0;}
+}
